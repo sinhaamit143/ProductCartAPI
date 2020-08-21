@@ -5,12 +5,15 @@
 ProductCart is a e-commerce platform that enables admin to manage the products and orders, similar way a user also has access to buy a particular product and manage their orders. ProductCart rest api is a easy api interface that can be used to develop a basic e-commerce application for multi platforms like, mobile app, website, desktop app etc.
 
 ## Tutorial
-We provide a [Postman](https://www.getpostman.com/) collection with a set of requests that introduce the basic concepts of the API. 
+We provide a [Postman](https://www.getpostman.com/) & [Talend API Tester](https://chrome.google.com/webstore/detail/talend-api-tester-free-ed/aejoelaoggembcahagimdiliamlcdmfm?hl=en) collection with a set of requests that introduce the basic concepts of the API. 
 ### Installation 
 It can be done in two steps:
-#### step 1:
+
+#### Step 1:
+First clone this ProductCart API Repository.
+#### Step 2:
 go to project directory and type (npm install) by using this package.json will install all the necessary dependencies.
-#### step 2:
+#### Step 3:
 run the application : node server.js or nodemon server.js
 
 ### Support
