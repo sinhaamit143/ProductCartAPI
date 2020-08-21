@@ -7,10 +7,10 @@ Create a [Product]
 
 ## Body Parameters
 #### Content Type : multipart/form-data
-#### Form Data : 
-productImage : File,
-name : string,
-decription : string,
+#### Form Data :
+productImage : File,<br>
+name : string,<br>
+decription : string,<br>
 price : number
 
 
