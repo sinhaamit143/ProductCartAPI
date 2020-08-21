@@ -1,7 +1,7 @@
 # Product
 ## GET a single Product
 
-    GET product/:product_id
+    GET products/:product_id
     
 Returns a single [Product]
 
@@ -30,9 +30,9 @@ None
 }
 
 ```
-## GET all Product
+## GET all Products
 
-    GET /product
+    GET /products
     
 Returns all [Product]
 
