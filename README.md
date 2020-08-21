@@ -52,15 +52,4 @@ For a description of the available resources see the [Resource Overview](resourc
 - **[<code>PATCH</code> Update Product](/plans/GET_id.md)**
 
 
-[Accounts]: /accounts/
-[Services]: /services/
-[Channel Types]: /channel-types
-[Service Channels]: /service_channels
-[Contacts]: /contacts
-[Contact Channels]: /contact_channels
-[Messages]: /messages
-[Contact Custom Fields]: /contact_custom_fields
-[Labels]: /labels
-[Templates]: /templates
-[Automations]: /automations
-[Error Codes]: /error_codes.md
+[Products]: /documentation/products
