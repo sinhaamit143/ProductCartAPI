@@ -43,15 +43,13 @@ Each response will be returned with one of the following HTTP status codes:
 ## Resources
 For a description of the available resources see the [Resource Overview](resource_overview.md).
 
-### General
-- **[<code>GET</code> Time Zones list](/time_zones/GET_list.md)**
-- **[<code>GET</code> Available Phone Numbers list](/available_phone_numbers/GET_list.md)**
 
-### [Accounts][]
-- **[<code>GET</code> Accounts list](/accounts/GET_list.md)**
-- **[<code>GET</code> Account](/accounts/GET_id.md)**
-- **[<code>GET</code> Account Plans list](/plans/GET_list.md)**
-- **[<code>GET</code> Account Plan](/plans/GET_id.md)**
+
+### [Products][]
+- **[<code>GET</code> Product list/ Single Product list](/accounts/GET_list.md)**
+- **[<code>POST</code> Create Product](/plans/GET_list.md)**
+- **[<code>DELETE</code> Delete Products / Delete Single Product](/plans/GET_id.md)**
+- **[<code>PATCH</code> UPDATE Product](/plans/GET_id.md)**
 
 
 [Accounts]: /accounts/
