@@ -46,21 +46,10 @@ For a description of the available resources see the [Resource Overview](resourc
 
 
 ### [Products][]
-- **[<code>GET</code> Product list/ Single Product list](/accounts/GET_list.md)**
-- **[<code>POST</code> Create Product](/plans/GET_list.md)**
-- **[<code>DELETE</code> Delete Products / Delete Single Product](/plans/GET_id.md)**
-- **[<code>PATCH</code> Update Product](/plans/GET_id.md)**
+- **[<code>GET</code> Product list/ Single Product list](/documentation/products/GET.md)**
+- **[<code>POST</code> Create Product](/documentation/products/POST.md)**
+- **[<code>DELETE</code> Delete Products / Delete Single Product](/documentation/products/DELETE.md)**
+- **[<code>PATCH</code> Update Product](/documentation/products/PATCH.md)**
 
 
-[Accounts]: /accounts/
-[Services]: /services/
-[Channel Types]: /channel-types
-[Service Channels]: /service_channels
-[Contacts]: /contacts
-[Contact Channels]: /contact_channels
-[Messages]: /messages
-[Contact Custom Fields]: /contact_custom_fields
-[Labels]: /labels
-[Templates]: /templates
-[Automations]: /automations
-[Error Codes]: /error_codes.md
+[Products]: /documentation/products
