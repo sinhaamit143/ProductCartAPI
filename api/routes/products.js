@@ -3,6 +3,7 @@ const express = require('express');
 const multer = require('multer');
 const fs = require('fs');
 const router = express();
+const fsExtra = require('fs-extra');
 
 
 //---importing controllers --------
@@ -50,7 +51,7 @@ router.post('/', upload.single('productImage'), ProductController.product_create
 router.get('/:productId', ProductController.product_get_product);
 
 //----PATCH request for all Product----
-router.patch("/:productId", ProductController.product_update_product);
+router.patch("/:productId", upload.single('productImage'), ProductController.product_update_product);
 
 //----DELETE request for individual Product----
 router.delete('/:productId', ProductController.product_delete_product);

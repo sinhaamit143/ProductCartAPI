@@ -1,14 +1,10 @@
 //----importing mongoose package----
 const mongoose = require('mongoose');
 const fs = require('fs');
-
-
-
-
+const fsExtra = require('fs-extra');
 
 //----importing models file -----
 const Product = require('../models/product');
-
 
 //----GET request for all products----
 exports.product_get_all = (req, res, next) => {
@@ -100,28 +96,44 @@ exports.product_get_product = (req, res, next) => {
 //----PATCH request for all product----
 exports.product_update_product = (req, res, next) => {
     const id = req.params.productId;
-    const updateOps = {};
-    for (const ops of req.body) {
-        updateOps[ops.propName] = ops.value;
-    };
-    Product.update({ _id: id }, { $set: updateOps })
-        .exec()
-        .then(result => {
-            console.log(result);
-            res.status(200).json({
-                message: 'Product updated',
-                request: {
-                    type: 'GET',
-                    url: 'http://localhost:3000/products/' + id
-                }
-            });
-        })
-        .catch(err => {
-            console.log(err)
-            res.status(500).json({
-                error: err
-            });
+    var update = {};
+    var flag=-1;
+    if (req.file) {
+        flag=1;
+        update= Product.findByIdAndUpdate(id, {
+            productImage: 'uploads/' + req.file.originalname,
+            name: req.body.name,
+            description: req.body.description,
+            price: req.body.price
+        }, {new: true, runValidators: true}
+        );
+
+       
+
+    } else {
+        flag=0;
+        update =  Product.findByIdAndUpdate(id, {
+            name: req.body.name,
+            description: req.body.description,
+            price: req.body.price
+        },{new: true, runValidators: true});
+    }
+    update.exec()
+    .then(result => {
+        res.status(200).json({
+            message: 'Product updated',
+            request: {
+                type: 'GET',
+                url: 'http://localhost:3000/products/' + id
+            }
         });
+    })
+    .catch(err => {
+        console.log(err)
+        res.status(500).json({
+            error: err
+        });
+    });
 };
 
 //----DELETE request for one Product----
@@ -134,49 +146,51 @@ exports.product_delete_product = (req, res, next) => {
             console.log(result.productImage);
             fs.unlinkSync(result.productImage);
             Product.deleteOne({ _id: id })
-            .exec()
-            .then(result => {
-                res.status(200).json({
-                    message: 'Product deleted',
-                    request: {
-                        type: "GET",
-                        url: 'http://localhost:3000/products/',
-                        body: { name: 'String', address: 'String' }
-                    }
+                .exec()
+                .then(result => {
+                    res.status(200).json({
+                        message: 'Product deleted',
+                        request: {
+                            type: "GET",
+                            url: 'http://localhost:3000/products/',
+                            body: { name: 'String', address: 'String' }
+                        }
+                    });
+                })
+                .catch(err => {
+                    console.log(err)
+                    res.status(500).json({
+                        error: err
+                    });
                 });
-            })
-            .catch(err => {
-                console.log(err)
-                res.status(500).json({
-                    error: err
-                });
-            });
         })
         .catch(err => {
             console.log(err)
             res.status(500).json({ error: err });
         });
-       
-            
+
+
 };
 
 // Delete all Products from the database.
 exports.deleteAll = (req, res) => {
+
     Product.deleteMany({})
-      .then(data => {
-        res.send({
-          message: `${data.deletedCount} Products were deleted successfully!`,
-          request: {
-            type: "POST",
-            url: 'http://localhost:3000/products/',
-            body: { name: 'String', address: 'String' }
-        }
+        .then(data => {
+            fsExtra.emptyDirSync('uploads/');
+            res.send({
+                message: `${data.deletedCount} Products were deleted successfully!`,
+                request: {
+                    type: "POST",
+                    url: 'http://localhost:3000/products/',
+                    body: { name: 'String', address: 'String' }
+                }
+            });
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while removing all Products."
+            });
         });
-      })
-      .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while removing all Products."
-        });
-      });
-  };
+};
