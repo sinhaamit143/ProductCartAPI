@@ -49,7 +49,7 @@ For a description of the available resources see the [Resource Overview](resourc
 - **[<code>GET</code> Product list/ Single Product list](/accounts/GET_list.md)**
 - **[<code>POST</code> Create Product](/plans/GET_list.md)**
 - **[<code>DELETE</code> Delete Products / Delete Single Product](/plans/GET_id.md)**
-- **[<code>PATCH</code> UPDATE Product](/plans/GET_id.md)**
+- **[<code>PATCH</code> Update Product](/plans/GET_id.md)**
 
 
 [Accounts]: /accounts/
